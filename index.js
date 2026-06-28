@@ -3,14 +3,14 @@ import express from 'express';
 import { CustomError } from './utils/CustomError.js';
 import { globalErrorHandler } from './controllers/error.controller.js';
 import customerRouter from './routes/customer.routes.js'
-import dotenv from 'dotenv';
+import { appProperties } from './configs/properties.js';
 
-dotenv.config();
-const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST || 'localhost'
+const PORT = appProperties.server.PORT || 3000;
+const HOST = appProperties.server.HOST || 'localhost'
 
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/v1/customers', customerRouter);
 

@@ -1,8 +1,9 @@
 
 export class Customer {
-    constructor({ customerId, firstName, lastName }) {
+    constructor({ customerId, customerName, mobile, password }) {
         this.customerId = customerId;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.customerName = customerName;
+        this.mobile = mobile;
+        this.password = password;
     }
 }
